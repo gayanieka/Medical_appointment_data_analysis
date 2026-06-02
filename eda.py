@@ -65,5 +65,16 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
 
 
+# 2. Condition Stacking: How Multiple Illnesses Affect Attendance
+# Add up the chronic conditions for each patient
+df['total_conditions'] = df['hypertension'] + df['diabetes'] + df['alcoholism'] + df['handicap']
+
+plt.figure(figsize=(8, 5))
+sns.barplot(x='total_conditions', y='noshow', data=df, palette='magma', errorbar=None)
+plt.title('Impact of Multiple Health Conditions on No-Shows')
+plt.xlabel('Total Chronic Conditions (0 to 4)')
+plt.ylabel('No-Show Rate (%)')
+plt.show()
+
 
 
