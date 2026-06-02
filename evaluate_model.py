@@ -7,11 +7,11 @@ from sklearn.metrics import classification_report, confusion_matrix, ConfusionMa
 
 print("Step 4: Evaluating the Model...")
 
-# Load the cleaned data and the trained model
+# Load cleaned data and trained model
 df = pd.read_csv('cleaned_medical_data.csv')
 model = joblib.load('hospital_noshow_model.pkl')
 
-# Re-create the EXACT test set used in Script 3
+# Re-create the EXACT test set
 X = df.drop('noshow', axis=1)
 y = df['noshow']
 _, X_test, _, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
