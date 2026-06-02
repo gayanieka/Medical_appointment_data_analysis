@@ -77,4 +77,12 @@ plt.ylabel('No-Show Rate (%)')
 plt.show()
 
 
-
+# 3. Age Density (Show vs No-Show)
+plt.figure(figsize=(9, 6))
+# common_norm=False ensures we can clearly see the peak of both groups
+sns.kdeplot(data=df, x='age', hue='noshow', common_norm=False, fill=True, palette='Set1', alpha=0.4, linewidth=2)
+plt.title('Age Density of Patients: Showed Up vs. Missed')
+plt.xlabel('Patient Age')
+plt.ylabel('Density (Concentration of Patients)')
+plt.legend(title='Status', labels=['No-Show', 'Showed Up'])
+plt.show()
