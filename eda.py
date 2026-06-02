@@ -47,4 +47,23 @@ sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt=".2f")
 plt.title("Feature Correlation")
 plt.show()
 
+# 1. The Myth-Buster: Age vs Gender
+# First, create age brackets
+bins = [0, 18, 35, 60, 100]
+labels = ['Children (0-18)', 'Young Adults (19-35)', 'Adults (36-60)', 'Seniors (60+)']
+df['age_group'] = pd.cut(df['age'], bins=bins, labels=labels, right=False)
+
+plt.figure(figsize=(9, 6))
+# A pointplot is perfect for showing the exact rate between two groups
+sns.pointplot(x='age_group', y='noshow', hue='gender', data=df, palette='Dark2', errorbar=None)
+plt.title('No-Show Rates: Age vs. Gender')
+plt.xlabel('Age Group')
+plt.ylabel('No-Show Rate (%)')
+# Map the legend back to text for readability
+plt.legend(title='Gender', labels=['Female', 'Male'])
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+
+
 
