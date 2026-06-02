@@ -33,11 +33,6 @@ plt.xlabel('Receives Scholarship (0 = No, 1 = Yes)')
 plt.ylabel('No-Show Rate (%)')
 plt.show()
 
-
-
-
-
-
 # Plot 1: Lead Time Impact
 plt.figure(figsize=(10, 6))
 sns.boxplot(x='noshow', y='lead_time', data=df, palette='Set2')
